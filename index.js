@@ -2,16 +2,34 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const helmet = require("helmet");
-const dotenv= require("dotenv");
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const userRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
 
 dotenv.config();
-const PORT = process.env.POST || 3000;
-const MONGO_URL = process.env.MONGO_URL;
+const PORT = process.env.PORT || 3000;
 
-mongoose.connect(MONGO_URL, {useNewUrlParser: true}, () =>  {
+mongoose.connect(process.env.MONGO_URL,
+        { useNewUrlParser: true, useUnifiedTopology: true },
+        () => {
         console.log("Connected to MongoDB !");
 });
 
-app.listen(POST, () => {
+// Middleware
+app.use(express.json());
+app.use(helmet());
+app.use(morgan("common"));
+
+app.use("/api/users", userRoute);
+app.use("/api/auth", authRoute);
+
+app.get("/", (req, res) => {
+        res.send("Welcome to homepage")
+})
+
+app.listen(PORT, () => {
         console.log(`Server is listening on port ${PORT}...`)
 });
+
+
