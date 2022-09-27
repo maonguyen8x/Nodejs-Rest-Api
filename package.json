@@ -4,6 +4,7 @@
     "start": "nodemon index.js"
   },
   "dependencies": {
+    "arangojs": "^5.8.0",
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
