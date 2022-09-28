@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
+const postRoute = require("./routes/posts");
+
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -34,6 +36,7 @@ app.use(morgan("common"));
 
 app.use("/api/v1/users", userRoute);
 app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/post", postRoute);
 
 app.get("/", (req, res) => {
 	res.send("Welcome to homepage")
