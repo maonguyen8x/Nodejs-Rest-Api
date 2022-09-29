@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 export default function Post({post}) {
-	const [like, setLike] = useState(post.like);
+	const [like, setLike] = useState(post.likes.length);
 	const [isLiked, setIsLiked] = useState(false);
 	const [user, setUser] = useState({});
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -29,7 +29,7 @@ export default function Post({post}) {
 					<div className="postTopLeft">
 						<img
 							className="postProfileImg"
-							src={user.profilePicture}
+							src={user.profilePicture || PF + "person/noAvatar.png"}
 							alt=""
 						/>
 						<span className="postUsername">

@@ -9,10 +9,6 @@ export default function Feed() {
 	const [text, setText] = useState("");
 
 	useEffect(() => {
-		console.log("================================");
-		console.log("Feed rendered.");
-		console.log("================================");
-
 		const fetchPosts = async () => {
 			const res = await axios.get("posts/timeline/63305f5075e5e22640f2fcd2");
 			setPosts(res.data);
@@ -23,7 +19,7 @@ export default function Feed() {
 
 	return (
 		<div className="feed">
-			<input type="text" onChange={e => setText(e.target.value)}/>
+			{/*<input type="text" onChange={e => setText(e.target.value)}/>*/}
 			<div className="feedWrapper">
 				<Share/>
 				{posts.map((p) => (
