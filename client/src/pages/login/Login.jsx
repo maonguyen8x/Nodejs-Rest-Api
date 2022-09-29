@@ -5,10 +5,10 @@ export default function Login() {
 		<div className="login">
 			<div className="loginWrapper">
 				<div className="loginLeft">
-					<h3 className="loginLogo">Facebook</h3>
+					<h3 className="loginLogo">facebook</h3>
 					<span className="loginDesc">
-            Connect with friends and the world around you on Facebook.
-          </span>
+		                Facebook helps you connect and share with the people in your life.
+		            </span>
 				</div>
 				<div className="loginRight">
 					<div className="loginBox">
