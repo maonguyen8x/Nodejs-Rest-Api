@@ -12,7 +12,7 @@ const postRoute = require("./routes/posts");
 
 
 dotenv.config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 const options = {
 	autoIndex: false, // Don't build indexes
